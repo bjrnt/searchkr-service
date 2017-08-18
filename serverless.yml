@@ -68,7 +68,7 @@ functions:
   searchkr:
     handler: handler.searchkr
     memorySize: 128
-    timeout: 5
+    timeout: 10
     environment:
       CACHE_URL: searchkr-cache.dddqkk.0001.apn2.cache.amazonaws.com
       CACHE_PORT: 6379

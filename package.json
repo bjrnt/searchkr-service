@@ -1,0 +1,29 @@
+{
+  "name": "searchkr-service",
+  "version": "1.0.0",
+  "description": "",
+  "main": "handler.js",
+  "scripts": {
+    "redis": "docker run --name searchkr-redis -d redis:alpine redis-server --appendonly yes",
+    "dev": "DEBUG=searchkr:* serverless offline start",
+    "deploy": "serverless deploy"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@bjrnt/searchkr": "^0.1.6",
+    "@types/aws-lambda": "0.0.16",
+    "@types/debug": "0.0.30",
+    "@types/node": "^8.0.19",
+    "@types/redis": "^2.6.0",
+    "bluebird": "^3.5.0",
+    "debug": "^2.6.8",
+    "redis": "^2.7.1",
+    "serverless-offline": "^3.15.3",
+    "serverless-webpack": "^2.2.0",
+    "ts-loader": "^2.3.2",
+    "typescript": "^2.4.2",
+    "webpack": "^3.4.1"
+  }
+}

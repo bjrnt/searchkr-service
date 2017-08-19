@@ -18,7 +18,7 @@ const performSearch = async (query: string): Promise<string> => {
     } catch (error) {
       debug('Could not set cache', query, stringifiedResult, error)
     }
-    debug(`Returnign results for ${query}`)
+    debug(`Returning results for ${query}`)
     return stringifiedResult
   } else {
     debug(`Cache hit for ${query}`)

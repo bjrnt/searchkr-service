@@ -67,7 +67,7 @@ provider:
 functions:
   searchkr:
     handler: handler.searchkr
-    memorySize: 128
+    memorySize: 512
     timeout: 10
     environment:
       CACHE_URL: searchkr-cache.dddqkk.0001.apn2.cache.amazonaws.com

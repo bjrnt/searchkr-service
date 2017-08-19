@@ -72,7 +72,6 @@ functions:
     environment:
       CACHE_URL: searchkr-cache.dddqkk.0001.apn2.cache.amazonaws.com
       CACHE_PORT: 6379
-      DEBUG: searchkr:*
     vpc:
       securityGroupIds:
         - sg-4b326a23

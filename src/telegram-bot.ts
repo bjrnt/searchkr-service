@@ -30,4 +30,4 @@ bot.on('text', async (ctx: any, next: any) => {
   return ctx.replyWithMarkdown(results.map(formatResult).join('\n'))
 })
 
-export const handleUpdate = bot.handleUpdate
+export const handleUpdate = bot.handleUpdate.bind(bot)

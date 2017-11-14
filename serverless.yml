@@ -11,7 +11,7 @@
 #
 # Happy Coding!
 
-service: seachkr-service
+service: seonbi-service
 
 # You can pin your service to only deploy with a specific Serverless version
 # Check out our docs for more details
@@ -66,7 +66,7 @@ provider:
 
 functions:
   searchkr:
-    handler: handler.searchkr
+    handler: handler.seonbi
     memorySize: 512
     timeout: 10
     environment:

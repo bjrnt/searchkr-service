@@ -1,18 +1,18 @@
 {
-  "name": "searchkr-service",
+  "name": "seonbi-service",
   "version": "1.0.0",
   "description": "",
   "main": "handler.js",
   "scripts": {
-    "redis": "docker run --name searchkr-redis -d redis:alpine redis-server --appendonly yes",
-    "dev": "DEBUG=searchkr:* serverless offline start",
+    "redis": "docker run --name seonbi-redis -d redis:alpine redis-server --appendonly yes",
+    "dev": "DEBUG=seonbi* serverless offline start",
     "deploy": "serverless deploy"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@bjrnt/searchkr": "^0.1.6",
+    "@bjrnt/seonbi-core": "^0.1.8",
     "@types/aws-lambda": "0.0.16",
     "@types/debug": "0.0.30",
     "@types/node": "^8.0.19",

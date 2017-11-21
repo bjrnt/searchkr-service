@@ -1,15 +1,15 @@
 import * as makeDebug from 'debug'
-import lookup from '@bjrnt/seonbi-core'
+import seonbi, { transform, Options, Result } from '@bjrnt/seonbi-core'
 import * as cache from './cache'
 
 const debug = makeDebug('seonbi-service:search')
 
-export async function search(query: string): Promise<string> {
-  const cacheResult = await cache.get(query)
+export async function search(query: string, options?: Options): Promise<Result[]> {
+  let results: Result[] = await cache.get(query).then(JSON.parse)
 
-  if (cacheResult == null) {
+  if (results == null) {
     debug(`Cache miss, getting results for ${query}...`)
-    const searchResult = await lookup(query)
+    const searchResult = await seonbi(query)
     debug(`Queried results for ${query}`)
     const stringifiedResult = JSON.stringify(searchResult)
     try {
@@ -18,11 +18,16 @@ export async function search(query: string): Promise<string> {
     } catch (error) {
       debug('Could not set cache', query, stringifiedResult, error)
     }
-    debug(`Returning results for ${query}`)
-    return stringifiedResult
+    results = searchResult
   } else {
     debug(`Cache hit for ${query}`)
-    debug(`Returning results for ${query}`)
-    return cacheResult
   }
+
+  if (options) {
+    debug(`Transforming results with options ${JSON.stringify(options)}`)
+    results = await transform(query, results, options)
+  }
+
+  debug(`Returning results for ${query}`)
+  return results
 }

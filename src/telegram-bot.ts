@@ -23,7 +23,7 @@ bot.on('text', async (ctx: any, next: any) => {
     return next()
   }
   const text: string = ctx.message.text
-  const results = await search(text.trim().toLowerCase())
+  const results = await search(text.trim().toLowerCase(), { matchExactly: true })
   if (results.length === 0) {
     return ctx.reply('No results :(')
   }

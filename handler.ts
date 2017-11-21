@@ -12,7 +12,7 @@ export const seonbi: AWSLambda.ProxyHandler = (event, _context, callback) => {
     return callback(undefined, { statusCode: 400, body: '' })
   }
 
-  search(event.queryStringParameters.query)
+  search(event.queryStringParameters.query.trim().toLowerCase())
     .then(results => {
       callback(undefined, { statusCode: 200, body: results })
     })

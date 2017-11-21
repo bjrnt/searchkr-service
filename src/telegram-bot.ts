@@ -1,4 +1,5 @@
-import search, { Result, Meaning } from '@bjrnt/seonbi-core'
+import { Result, Meaning } from '@bjrnt/seonbi-core'
+import { search } from './cached-search'
 const Telegraf: any = require('telegraf')
 
 const bot = new Telegraf('465288108:AAEy_fltPZdZQMsBaHX4zFEyJlxznCfknYY')

@@ -35,7 +35,8 @@ bot.on('text', async (ctx: any, next: any) => {
   if (results.length === 0) {
     return ctx.reply('No results :(')
   }
-  return ctx.replyWithMarkdown(results.map(formatResult).join('\n'), {
+  return ctx.replyWithMarkdown(results.map(formatResult).join('\n'))
+  /*, {
     reply_markup: {
       inline_keyboard: [
         [
@@ -46,7 +47,7 @@ bot.on('text', async (ctx: any, next: any) => {
         ],
       ],
     },
-  })
+  })*/
 })
 
 export const handleUpdate = bot.handleUpdate.bind(bot)
